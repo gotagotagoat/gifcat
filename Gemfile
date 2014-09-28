@@ -8,10 +8,10 @@ gem 'sinatra-contrib'
 gem 'sinatra'
 gem 'activerecord'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
-gem 'foreman'
 
 group :development do
   gem 'sqlite3'
+  gem 'foreman'
 end
 
 group :production do
