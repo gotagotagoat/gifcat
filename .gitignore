@@ -1,0 +1,6 @@
+/vendor
+/test
+/.bundle
+.env
+.DS_Store
+.ruby-version
