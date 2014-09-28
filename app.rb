@@ -3,10 +3,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
 
-ActiveRecord::Base.establish_connection(
-  "adapter" => "sqlite3",
-  "database" => "./dev.db"
-)
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'sqlite3://./dev.db')
 
 class Sample < ActiveRecord::Base
 end
@@ -17,3 +14,4 @@ get '/' do
     erb :app
   end
 end
+
