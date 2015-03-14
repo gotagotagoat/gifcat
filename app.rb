@@ -10,7 +10,7 @@ end
 
 get '/' do
   ActiveRecord::Base.connection_pool.with_connection do
-    @urlData = Sample.limit(9).order("RANDOM()")
+    @url_data = Sample.limit(9).order("RANDOM()")
     erb :app
   end
 end

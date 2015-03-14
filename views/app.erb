@@ -15,29 +15,40 @@
       <![endif]-->
   </head>
   <body>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-    <header class="container navbar-fixed-top" style="padding: 10px">
-      <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width=110&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:21px;" allowTransparency="true"></iframe>
-      <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <header class="container navbar-fixed-top" style="padding: 10px; height: 10px;">
+      <div style="line-height: 10px;">
+      <span class="fb-like" data-href="http://gifcat.herokuapp.com/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></span>
+      <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+      </div>
     </header>
 
     <div class="container">
       <h1 class="text-center">Welcom to GifCat</h1>
       <div class="row">
-        <% @urlData.each do |x| %>
+        <% @url_data.each do |url| %>
           <div class="container col-md-4 col-sm-6 col-xs-12" style="padding: 20px">
-            <a href="<%= x["linkurl"] %>"><img class="img-responsive" alt="gif file" src="<%= x["url"] %> " target=_blank></a>
+            <a href="<%= url["linkurl"] %>"><img class="img-responsive" alt="gif file" src="<%= url["url"] %> " target=_blank></a>
           </div>
         <% end %>
       </div>
     </div>
 
 <div class="container text-center" style="padding: 20px">
-      <div class="footter">
-      <button type="button" class="btn btn-info btn-lg"  onclick="location.reload();">Show another cat!  <i class="glyphicon glyphicon-refresh"></i></button>
-      </div>
+    <div class="footer">
+    <button type="button" class="btn btn-info btn-lg"  onclick="location.reload();">Show another cat!  <i class="glyphicon glyphicon-refresh"></i></button>
+    </div>
 </div>
 
   </body>
